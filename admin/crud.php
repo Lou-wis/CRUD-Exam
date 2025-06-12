@@ -304,27 +304,22 @@ $(document).ready(function() {
 
         $('#UpdateModal').modal('show');
     });
+
+    $('.delBtn').on('click', function() {
+        $('#DeleteModal').modal('show');
+
+        $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+
+        console.log(data);
+
+        $('#delete_id').val(data[0]);
+    });
 });
 </script>
-
-<script>
-        $(document).ready(function() {
-            $('.delBtn').on('click', function() {
-                $('#DeleteModal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function(){
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#delete_id').val(data[0]);
-            });
-        });
-</script>
-
 
 </body>
 </html>
